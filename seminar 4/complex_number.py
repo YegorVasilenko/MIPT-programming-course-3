@@ -1,19 +1,3 @@
-import math
-
-
-# краткая справка по классу (будет дополняться)
-# параметры
-# _Re | вещественная часть алгебраической формы
-# _Im | мнимая часть алгебраической формы
-# _r  | модуль тригонометрической формы
-# _phi| аргумент тригонометрической формы
-# методы
-# sum |
-# substract |
-# product |
-# divide |
-# get_exponential_form |
-# get_algebraic_form |
 
 
 class ComplexNumber:
@@ -179,3 +163,25 @@ class ComplexNumber:
 
     def __eq__(self, z):
         return self.get_Re() == z.get_Re() and self.get_Im() == z.get_Im()
+
+
+    def __str__(self):
+        return str(self.get_Re()) + " + i * " + str(self.get_Im())
+
+
+    def __abs__(self):
+        return (self.get_Re()**2 + self.get_Im()**2)**0.5
+
+
+    def __getitem__(self, i):
+        if i == 0:
+            return self.get_Re()
+        if i == 1:
+            return self.get_Im()
+        return None
+
+
+z = ComplexNumber(3, 4)
+print(z)
+print(abs(z))
+print(z[0], z[1])
